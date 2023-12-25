@@ -2,7 +2,7 @@
   "name": "moveo-task",
   "version": "1.0.0",
   "description": "",
-  "main": "server/index.js",
+  "main": "index.js",
   "dependencies": {
     "acorn": "^8.11.2",
     "ajv": "^6.12.6",
