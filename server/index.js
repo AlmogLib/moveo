@@ -19,7 +19,7 @@ const io = new Server(server, {
 });
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, '/../client/public/index.html'));
+    res.sendFile(path.join(__dirname, '/moveo-task/client/public/index.html'));
 });
 
 // כל נתיב אחר מוביל לנתיב הראשי
