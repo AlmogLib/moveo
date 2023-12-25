@@ -1,0 +1,41 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    background-color: cadetblue;
+    padding: 50px;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+.code-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    max-width: 20vw;
+    margin: 0 auto;
+}
+
+.code-item {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #e0e0e0;
+    }
+}
+
+.code-link {
+    text-decoration: none;
+    color: inherit;
+}

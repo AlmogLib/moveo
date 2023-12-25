@@ -1,0 +1,37 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    background-color: cadetblue;
+    padding: 50px;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+.code {
+    width: 50vw;
+    margin: 0 auto;
+    margin-top: 30px;
+    text-align: left;
+    background-color: #3a404d;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.bar {
+    color: white;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+
+}
