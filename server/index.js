@@ -16,8 +16,11 @@ const io = new Server(server, {
     },
 });
 
+// app.get("/", (req, res) => {
+//     res.sendFile(__dirname + "/../client/public/index.html");
+// });
 app.route("/").get(function (req, res) {
-    res.redirect("/client/public/index.html");
+    res.redirect("/../client/public/index.html");
 });
 // מערך לשמירת התפקידים של המשתמשים
 const roles = {};
