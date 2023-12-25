@@ -5,7 +5,6 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 const path = require("path");
 
-
 app.use(cors());
 const port = process.env.PORT || 3001;
 
@@ -18,12 +17,16 @@ const io = new Server(server, {
     },
 });
 
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/public/index.html'));
+// אם הקובץ בתיקיית client/public
+const indexPath = path.join(__dirname, 'client/public/index.html');
+
+app.get("/", (req, res) => {
+    res.sendFile(indexPath);
 });
 
+// כל נתיב אחר מוביל לנתיב הראשי
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/public/index.html'));
+    res.sendFile(indexPath);
 });
 
 // מערך לשמירת התפקידים של המשתמשים
