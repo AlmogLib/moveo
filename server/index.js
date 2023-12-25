@@ -16,12 +16,15 @@ const io = new Server(server, {
     },
 });
 
-// app.get("/", (req, res) => {
-//     res.sendFile(__dirname + "/../client/public/index.html");
-// });
-app.route("/").get(function (req, res) {
-    res.redirect("/../client/public/index.html");
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, '/../client/public/index.html'));
 });
+
+// כל נתיב אחר מוביל לנתיב הראשי
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/../client/public/index.html'));
+});
+
 // מערך לשמירת התפקידים של המשתמשים
 const roles = {};
 
