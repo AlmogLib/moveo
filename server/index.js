@@ -16,12 +16,21 @@ const io = new Server(server, {
     },
 });
 
-// app.get("/", (req, res) => {
-//     res.sendFile(__dirname + "/../client/public/index.html");
-// });
-app.route("/").get(function (req, res) {
-    res.redirect("/../client/public/index.html");
+
+// הגדרת middleware לקבצים סטטיים
+app.use(express.static(path.join(__dirname, 'client/public')));
+
+// קבעת הנתיב שמחזיר את קובץ ה-HTML
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/public/index.html'));
 });
+
+// קבלת בקשות לנתיבים אחרים, או שימוש ב-React Router
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/public/index.html'));
+});
+
+
 // מערך לשמירת התפקידים של המשתמשים
 const roles = {};
 
