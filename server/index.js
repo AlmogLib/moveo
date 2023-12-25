@@ -18,12 +18,12 @@ const io = new Server(server, {
 });
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/public/index.html'));
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 // כל נתיב אחר מוביל לנתיב הראשי
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/public/index.html'));
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 // מערך לשמירת התפקידים של המשתמשים
