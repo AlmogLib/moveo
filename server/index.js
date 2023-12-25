@@ -17,16 +17,13 @@ const io = new Server(server, {
     },
 });
 
-// אם הקובץ בתיקיית client/public
-const indexPath = path.join(__dirname, '/../client/build/index.html');
-
 app.get("/", (req, res) => {
-    res.sendFile(indexPath);
+    res.sendFile(path.join(__dirname, '../client/public/index.html'));
 });
 
 // כל נתיב אחר מוביל לנתיב הראשי
 app.get('*', (req, res) => {
-    res.sendFile(indexPath);
+    res.sendFile(path.join(__dirname, '../client/public/index.html'));
 });
 
 // מערך לשמירת התפקידים של המשתמשים
