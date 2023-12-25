@@ -17,7 +17,7 @@ const io = new Server(server, {
 });
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/../client/public/index.html");
+    res.sendFile(__dirname + "/public/index.html");
 });
 // מערך לשמירת התפקידים של המשתמשים
 const roles = {};
