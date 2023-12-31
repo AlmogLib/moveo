@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useEffect } from "react";
 import "../css/lobby.css";
 import { Link } from "react-router-dom";
 import io from "socket.io-client";

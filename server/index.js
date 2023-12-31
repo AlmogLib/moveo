@@ -36,7 +36,7 @@ io.on("connection", (socket) => {
     // בדיקת הגדרת המשתמש בכניסה לדף
     socket.on("checkExistence", () => {
         if (!roles[socket.id]) {
-            roles[socket.id] = Object.keys(roles).length > 0 ? "kevin" : "king";
+            roles[socket.id] = Object.keys(roles).length > 0 ? "student" : "mentor";
             console.log(`User is: ${roles[socket.id]}`);
             socket.emit("settings", socket.id, roles[socket.id]);
         }

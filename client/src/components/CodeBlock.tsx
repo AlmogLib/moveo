@@ -39,8 +39,8 @@ const CodeBlock: React.FunctionComponent<CodeBlockProps> = () => {
             // איפוס המשתמש כל פעם שהוא נכנס לדף
             setMentorStatus(false);
 
-            // בדיקה אם המשתמש הוא King
-            if (userRole === "king") {
+            // בדיקה אם המשתמש הוא Mentor
+            if (userRole === "mentor") {
                 setMentorStatus(true);
             }
         };
