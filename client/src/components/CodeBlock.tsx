@@ -4,7 +4,7 @@ import io from "socket.io-client";
 import ControlledEditor from "@monaco-editor/react";
 import 'highlight.js/styles/monokai-sublime.css';
 import "../css/codeBlock.css";
-import codeBlocks, { CodeBlockData } from "./codeBlocksData"
+import codeBlocks from "./codeBlocksData"
 
 
 interface CodeBlockProps { }
@@ -16,12 +16,6 @@ const CodeBlock: React.FunctionComponent<CodeBlockProps> = () => {
     const navigate = useNavigate();
     const [text, setText] = useState("");
     const [mentorStatus, setMentorStatus] = useState(false);
-    const [localCodeBlocks, setLocalCodeBlocks] = useState<CodeBlockData[]>([]);
-
-    useEffect(() => {
-        // יציאת הטעינה לפי צורך, לדוג', יכול להיות בעת טעינת הדף
-        setLocalCodeBlocks(codeBlocks);
-    }, []); // או שתעביר לפונקציה אחרת או תשנה את התלויות ה־useEffect לפי צורך
 
     const handleEnterLobby = () => {
         socket.emit("enterLobby");
@@ -30,8 +24,9 @@ const CodeBlock: React.FunctionComponent<CodeBlockProps> = () => {
 
 
     useEffect(() => {
+        // מציאת הקוד בלוק המתאים לפי שם הבלוק
         const currentCodeBlock = codeBlocks.find((block) => block.name === blockName);
-
+        // מגדיר את הטקסט הרלוונטי לאותו קוד בלוק
         if (currentCodeBlock && !text) {
             setText(currentCodeBlock.code);
         }
@@ -58,12 +53,12 @@ const CodeBlock: React.FunctionComponent<CodeBlockProps> = () => {
     }, []);
 
     const handleCodeChange = (value: string | undefined) => {
-        // Send the updated code to the server
+        // שולח את הקוד המתעדכן לשרת
         socket.emit("updateCode", { blockName, code: value });
     };
 
     socket.on("codeUpdated", ({ blockName, code }) => {
-        // עדכן את הקוד של הבלוק הנוכחי בזמן אמת
+        // עדכון הקוד של הבלוק הנוכחי בזמן אמת
         if (blockName === blockName) {
             setText(code);
         }
