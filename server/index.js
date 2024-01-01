@@ -61,10 +61,6 @@ io.on("connection", (socket) => {
         io.emit("codeUpdated", { blockName, code });
     });
 
-    socket.on("resetUser", () => {
-        delete roles[socket.id];
-    });
-
 });
 
 server.listen(port, () => {

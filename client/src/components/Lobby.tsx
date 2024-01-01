@@ -1,11 +1,8 @@
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent } from "react";
 import "../css/lobby.css";
 import { Link } from "react-router-dom";
-import io from "socket.io-client";
 
 interface LobbyProps { }
-
-const socket = io("http://localhost:3001");
 
 const Lobby: FunctionComponent<LobbyProps> = () => {
     const codeBlocks = [
@@ -14,21 +11,6 @@ const Lobby: FunctionComponent<LobbyProps> = () => {
         'Array Manipulation',
         'Event Handling',
     ];
-
-    const resetUser = () => {
-        socket.emit("resetUser");
-    };
-
-    useEffect(() => {
-        // הרשמה לפונקציה לאירוע "beforeunload" של החלון
-        window.addEventListener("beforeunload", resetUser);
-
-        // Cleanup
-        return () => {
-            // הסרת הרשמה לפונקציה בעת יציאה מהעמוד
-            window.removeEventListener("beforeunload", resetUser);
-        };
-    }, []);
 
     return (
         <div className="container">
